@@ -217,55 +217,6 @@ function setDirection(newDirection) {
     currentDirection = newDirection
 }
 
-function drawPoint(context, x, y, color, size) {
-    if (color == null) {
-        color = '#000';
-    }
-    if (size == null) {
-        size = 5;
-    }
-
-    var radius = 0.5 * size;
-
-    var pointX = Math.round(x - radius);
-    var pointY = Math.round(y - radius);
-
-    context.beginPath();
-    context.fillStyle = color;
-    context.fillRect(pointX, pointY, size, size);
-    context.fill();
-}
-
-function drawBorder(context, xFrom, xTo, yFrom, yTo, color, size) {
-    if (color == null) {
-        color = '#000';
-    }
-
-    if (size == null) {
-        size = 5;
-    }
-
-    var radius = 0.5 * size;
-
-    for (let i = xFrom; i <= xTo; i += (snakeSize / 2)) {
-        var pointX = Math.round(i - radius);
-        var pointY = Math.round(yFrom - radius);
-        context.beginPath();
-        context.fillStyle = color;
-        context.fillRect(pointX, pointY, size, size);
-        context.fill();
-    }
-
-    for (let i = yFrom; i <= yTo; i += (snakeSize / 2)) {
-        var pointX = Math.round(xFrom - radius);
-        var pointY = Math.round(i - radius);
-        context.beginPath();
-        context.fillStyle = color;
-        context.fillRect(pointX, pointY, size, size);
-        context.fill();
-    }
-}
-
 document.onkeydown = keyListener;
 
 function keyListener(e) {
@@ -290,10 +241,6 @@ function keyListener(e) {
 }
 
 function startGame() {
-    // drawBorder(context, 5, 795, 5, 5, 'white', 10);
-    // drawBorder(context, 5, 5, 5, 795, 'white', 10);
-    // drawBorder(context, 795, 795, 5, 795, 'white', 10);
-    // drawBorder(context, 5, 795, 795, 795, 'white', 10);
     placeFood();
     snake = [
         { x: 100, y: 400 },

@@ -21,7 +21,7 @@ export class SnakeGame {
     this.snake = new Snake(this.gridSize);
     this.context = context;
   }
-
+  
   newGame() {
     this.spawnFood();
     setInterval(() => {
